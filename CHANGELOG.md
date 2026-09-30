@@ -1,5 +1,11 @@
 # Changelog
 
+## 30/09/2026, night
+
+- Added an enquiry form under the contact details, so people can get in touch without opening
+  their own email. Submissions go through FormSubmit (free, no account) to caleb@boddingtonadvisory.co.uk.
+  A hidden honeypot field catches most spam bots.
+
 ## 30/09/2026, late
 
 - Rewrote the copy in first person with real detail, because the first version read as generic.
