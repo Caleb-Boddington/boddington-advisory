@@ -1,5 +1,16 @@
 # Changelog
 
+## 30/09/2026, privacy
+
+- Added a Privacy page, linked from every footer, because people who email the business are
+  sharing personal information and UK data protection law expects them to be told what happens
+  to it.
+- The fonts are now served from this site instead of Google Fonts, so a visit sends nothing to
+  any other company and the privacy page can say so truthfully.
+- Added a Personal projects page with screenshots, and a gold guilloche pattern behind the
+  masthead so the header is not one flat colour.
+- Reworded the home page and About so they describe the work rather than who does it.
+
 ## 30/09/2026, font
 
 - Swapped Bodoni Moda for Libre Bodoni, which is drawn for screens: Bodoni Moda's thin strokes all

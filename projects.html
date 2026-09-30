@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Boddington Advisory</title>
-<meta name="description" content="Boddington Advisory: IT support and security for small firms in Surrey and beyond, from Caleb Boddington.">
+<title>Projects · Boddington Advisory</title>
+<meta name="description" content="Personal projects by Caleb Boddington: a free guide to Claude, a self-fixing home server and open-source tools for Claude Code.">
 <meta name="theme-color" content="#13302a">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="fonts/fonts.css">
@@ -127,6 +127,23 @@
     .seal .draw { animation: none; stroke-dashoffset: 0; }
     .seal .fade { animation: none; opacity: 1; }
   }
+
+  /* Projects page */
+  .masthead.slim .masthead-inner { grid-template-columns: minmax(0, 8rem) minmax(0, 1fr); padding-block: 3.5rem 3.2rem; gap: 2.5rem; }
+  .masthead.slim .mark { width: 100%; max-width: 8rem; height: auto; color: var(--gold); --field: var(--green); --mono-fill: var(--ivory); }
+  .back { display: inline-block; margin-top: 0.4rem; font: 600 0.85rem/1.4 var(--caps); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+  .back:hover { color: var(--ivory); }
+  .back:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .shot { margin: 0 0 1.4rem; border: 1px solid var(--rule); box-shadow: 0 18px 40px rgba(12, 33, 28, 0.18); background: var(--green-deep); }
+  .shot img { display: block; width: 100%; height: auto; }
+  .project p { margin: 0; color: var(--muted); max-width: 60ch; font-size: 1.05rem; }
+  .project p + p { margin-top: 0.8rem; }
+  .project .go { display: inline-block; margin-top: 1.1rem; font: 600 0.85rem/1.4 var(--caps); letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-ink); text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 0.2rem; }
+  .project .go:hover { color: var(--ink); }
+  @media (max-width: 760px) {
+    .masthead.slim .masthead-inner { grid-template-columns: 1fr; }
+    .masthead.slim .mark { max-width: 5rem; }
+  }
 </style>
 </head>
 <body>
@@ -151,94 +168,66 @@
   </defs>
 </svg>
 
-<header class="masthead">
+<header class="masthead slim">
   <div class="masthead-inner">
-    <svg class="seal" viewBox="0 0 300 300" role="img" aria-label="The Boddington Advisory seal: a BA monogram inside an engraved ring">
-      <circle class="draw" cx="150" cy="150" r="145.5" fill="none" stroke="currentColor" stroke-width="3.6"/>
-      <circle class="draw d2" cx="150" cy="150" r="139" fill="none" stroke="currentColor" stroke-width="0.8"/>
-      <g class="fade">
-        <text font-family="Libre Bodoni, Didot, serif" font-weight="600" font-size="14" letter-spacing="4.6" fill="currentColor">
-          <textPath href="#band" startOffset="26.6%" text-anchor="middle">BODDINGTON · ADVISORY</textPath>
-        </text>
-        <text font-family="Libre Bodoni, Didot, serif" font-weight="500" font-size="11.5" letter-spacing="3.6" fill="currentColor">
-          <textPath href="#bandLow" startOffset="50%" text-anchor="middle">EST · 2026 · SURREY</textPath>
-        </text>
-        <g fill="currentColor"><path d="M26 150l4-4 4 4-4 4z"/><path d="M266 150l4-4 4 4-4 4z"/></g>
-        <circle cx="150" cy="150" r="95" fill="url(#hatch)"/>
-        <circle cx="150" cy="150" r="80" style="fill:var(--field)"/>
-        <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
-          <path d="M70 150h8"/><path d="M230 150h-8"/><path d="M150 70v8"/><path d="M150 230v-8"/>
-          <path d="M86 118l12 12h10"/><path d="M214 182l-12-12h-10"/>
-        </g>
-        <g fill="currentColor"><circle cx="86" cy="118" r="2.6"/><circle cx="214" cy="182" r="2.6"/></g>
-        <use href="#cipher" x="70" y="70" width="160" height="160"/>
-      </g>
-      <circle class="draw d3" cx="150" cy="150" r="104" fill="none" stroke="currentColor" stroke-width="0.8"/>
-      <circle class="draw d3" cx="150" cy="150" r="97" fill="none" stroke="currentColor" stroke-width="2"/>
-    </svg>
+    <svg class="mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#mark"/></svg>
     <div>
-      <div class="eyebrow">EST. 2026 &nbsp;·&nbsp; SURREY</div>
-      <h1>Boddington Advisory</h1>
+      <div class="eyebrow">PERSONAL PROJECTS</div>
+      <h1>Projects</h1>
       <div class="hairline"></div>
-      <p class="lede">IT support and security for small firms in Surrey and beyond.</p>
-      <div class="contact-line">caleb@boddingtonadvisory.co.uk</div>
-      <a class="projects-link" href="projects.html">Personal projects</a>
+      <p class="lede">Things I've built in my own time. They're all public, so have a look.</p>
+      <a class="back" href="index.html">Back to Boddington Advisory</a>
     </div>
   </div>
 </header>
 
 <main>
-  <section aria-labelledby="services">
-    <div class="kicker">Practice</div>
+  <section class="project" aria-labelledby="claude-for-beginners">
+    <div class="kicker">Website · 2026</div>
     <div>
-      <h2 id="services">Services</h2>
-      <div class="services">
-        <div class="service">
-          <h3>IT support</h3>
-          <p>New laptops set up, email moved across, accounts sorted when someone joins or leaves. Then help when something breaks.</p>
-        </div>
-        <div class="service">
-          <h3>Cyber security</h3>
-          <p>Backups you've actually tested a restore from, and logins that need more than a password. Dull work, but it's what stops the common attacks.</p>
-        </div>
-        <div class="service">
-          <h3>Artificial intelligence</h3>
-          <p>If you've wondered whether ChatGPT or Copilot could take a chore off your hands, I'll try it on your real work first. If it isn't worth it, I'll say so.</p>
-        </div>
-        <div class="service">
-          <h3>Software</h3>
-          <p>Small scripts and automations for the jobs you do by hand every week. I build and run my own, so I know which ones pay off.</p>
-        </div>
-      </div>
+      <h2 id="claude-for-beginners">Claude for Beginners</h2>
+      <figure class="shot"><img src="img/claude-for-beginners.jpg" alt="The front page of Claude: A Beginner's Guide" width="1100" height="687" loading="lazy"></figure>
+      <p>A free guide to Claude, the AI assistant, for people who've never used it. It's fifteen parts long, starts from nothing, and you don't have to sign up to read it.</p>
+      <p>A Python script builds the whole site from one source file, and it's hosted on Netlify.</p>
+      <a class="go" href="https://claude4beginners.co.uk">Visit the site</a>
     </div>
   </section>
-
-  <section aria-labelledby="about">
-    <div class="kicker">The firm</div>
-    <div class="prose">
-      <h2 id="about">About</h2>
-      <p>I'm Caleb Boddington. I set up Boddington Advisory in September 2026 to help small firms with their IT: keeping it running, keeping it secure, and sorting it out when something goes wrong.</p>
-      <p>I have experience doing IT in a health-tech company, where security and record-keeping have to be right, and I work to that same standard whatever the size of the business.</p>
-      <p>What I see of your systems stays between us.</p>
+  <section class="project" aria-labelledby="support-desk">
+    <div class="kicker">Home server · 2026</div>
+    <div>
+      <h2 id="support-desk">Homelab support desk</h2>
+      <figure class="shot"><img src="img/support-desk.jpg" alt="The Homelab support desk README on GitHub" width="872" height="760" loading="lazy"></figure>
+      <p>My home server keeps an eye on itself. If an app falls over, Claude looks into it, restarts it if that's all it needs, and sends a message to my phone.</p>
+      <p>On 23/09/2026 I broke one of my apps on purpose. It was fixed and I had the message 75 seconds later, without touching a keyboard. The AI can only run commands I've approved, and an SSH key locks that in.</p>
+      <a class="go" href="https://github.com/Caleb-Boddington/homelab-support-desk">View on GitHub</a>
     </div>
   </section>
-
-  <section aria-labelledby="contact">
-    <div class="kicker">Correspondence</div>
+  <section class="project" aria-labelledby="quorum">
+    <div class="kicker">Claude Code · 2026</div>
     <div>
-      <h2 id="contact">Write to me</h2>
-      <div class="card">
-        <div class="who">
-          <svg viewBox="0 0 200 200" aria-hidden="true"><use href="#mark"/></svg>
-          <div>
-            <div class="name">Caleb Boddington</div>
-            <div class="email" id="email">caleb@boddingtonadvisory.co.uk</div>
-          </div>
-        </div>
-        <button class="copy" id="copy" type="button">Copy email</button>
-      </div>
-
-      <p class="send-row"><a class="send" href="mailto:caleb@boddingtonadvisory.co.uk?subject=Enquiry%20from%20your%20website">Email me</a></p>
+      <h2 id="quorum">Quorum</h2>
+      <figure class="shot"><img src="img/quorum.jpg" alt="The Quorum README on GitHub" width="872" height="760" loading="lazy"></figure>
+      <p>A tool for Claude Code that puts a hard question to a panel of AI agents instead of just one. They research it separately, another agent checks their facts, and a last one audits the final answer.</p>
+      <p>It has caught its own verdict out twice, which is the whole point of it.</p>
+      <a class="go" href="https://github.com/Caleb-Boddington/quorum">View on GitHub</a>
+    </div>
+  </section>
+  <section class="project" aria-labelledby="sharpen">
+    <div class="kicker">Claude Code · 2026</div>
+    <div>
+      <h2 id="sharpen">Sharpen</h2>
+      <figure class="shot"><img src="img/sharpen.jpg" alt="The Sharpen README on GitHub" width="872" height="760" loading="lazy"></figure>
+      <p>Turns a rough idea into a proper brief before any work starts. A panel of agents picks holes in it and sends the problems back as questions for me to answer.</p>
+      <a class="go" href="https://github.com/Caleb-Boddington/sharpen">View on GitHub</a>
+    </div>
+  </section>
+  <section class="project" aria-labelledby="assay">
+    <div class="kicker">Claude Code · 2026</div>
+    <div>
+      <h2 id="assay">Assay</h2>
+      <figure class="shot"><img src="img/assay.jpg" alt="The Assay README on GitHub" width="872" height="760" loading="lazy"></figure>
+      <p>Reads how I actually use Claude, then hunts for add-ons that fit and scores each one out of 25. It won't rate anything it hasn't opened, and its default answer is don't install.</p>
+      <a class="go" href="https://github.com/Caleb-Boddington/assay">View on GitHub</a>
     </div>
   </section>
 </main>
@@ -248,22 +237,5 @@
   <span>Sole trader · England · Est. 2026 · <a href="privacy.html">Privacy</a></span>
 </footer>
 
-<script>
-  (function () {
-    var btn = document.getElementById('copy'), email = document.getElementById('email');
-    btn.addEventListener('click', function () {
-      var reset = function () { setTimeout(function () { btn.textContent = 'Copy email'; }, 1800); };
-      var fallback = function () {
-        var r = document.createRange(); r.selectNodeContents(email);
-        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-        btn.textContent = 'Selected'; reset();
-      };
-      try {
-        navigator.clipboard.writeText(email.textContent.trim()).then(function () { btn.textContent = 'Copied'; reset(); }, fallback);
-      } catch (e) { fallback(); }
-    });
-  })();
-
-</script>
 </body>
 </html>
