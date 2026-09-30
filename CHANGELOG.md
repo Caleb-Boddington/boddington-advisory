@@ -1,5 +1,10 @@
 # Changelog
 
+## 30/09/2026, later
+
+- The enquiry form now drops anything sent within four seconds of the page opening, and passes the
+  hidden honeypot field to FormSubmit so its own server filters bots as well as the page.
+
 ## 30/09/2026, night
 
 - Added an enquiry form under the contact details, so people can get in touch without opening

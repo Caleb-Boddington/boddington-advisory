@@ -315,20 +315,22 @@
 
   (function () {
     var form = document.getElementById('enquiry'), btn = document.getElementById('send'), status = document.getElementById('status');
+    var loadedAt = Date.now();
     function say(text, cls) { status.textContent = text; status.className = 'status' + (cls ? ' ' + cls : ''); }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var name = form.name.value.trim(), email = form.email.value.trim(), message = form.message.value.trim();
       if (!name || !email || !message) { say("Please add your name, email and a message.", 'err'); return; }
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { say("That email address doesn't look right. Check it and try again.", 'err'); return; }
-      if (form._honey.value) { say("Sent. I'll reply by email.", 'ok'); form.reset(); return; }
+      // Bots fill the hidden field or submit within seconds of the page loading; people do neither.
+      if (form._honey.value || Date.now() - loadedAt < 4000) { say("Sent. I'll reply by email.", 'ok'); form.reset(); return; }
       btn.disabled = true; say('Sending...');
       fetch('https://formsubmit.co/ajax/caleb@boddingtonadvisory.co.uk', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           name: name, email: email, company: form.company.value.trim(), topic: form.topic.value, message: message,
-          _subject: 'Website enquiry: ' + form.topic.value + ' from ' + name, _replyto: email, _template: 'table', _captcha: 'false'
+          _subject: 'Website enquiry: ' + form.topic.value + ' from ' + name, _replyto: email, _template: 'table', _captcha: 'false', _honey: form._honey.value
         })
       }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
         .then(function (res) {
