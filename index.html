@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Boddington Advisory</title>
-<meta name="description" content="Boddington Advisory: discreet IT counsel for small firms and private clients. IT support, cyber security, AI and software.">
+<meta name="description" content="Boddington Advisory: IT support and security for small firms in Surrey and beyond, from Caleb Boddington.">
 <meta name="theme-color" content="#13302a">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500;1,6..96,600&family=Libre+Franklin:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,500;1,6..96,600&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap">
 <style>
   /* Layout: a private firm's headed paper. Racing-green masthead carrying the signet seal,
      then a single ivory column; gold hairlines divide it the way a letterhead is ruled. */
@@ -26,8 +26,8 @@
     --field: var(--green);
     --mono-fill: var(--ivory);
     --display: "Bodoni Moda", Didot, "Bodoni 72", Georgia, serif;
-    --body: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
-    --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    --body: "Libre Caslon Text", "Big Caslon", "Adobe Caslon Pro", Georgia, serif;
+    --caps: "Bodoni Moda", Didot, "Bodoni 72", Georgia, serif;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -40,7 +40,7 @@
     color-scheme: dark;
   }
   * { box-sizing: border-box; }
-  body { background: var(--paper); color: var(--ink); font: 400 1.0625rem/1.7 var(--body); margin: 0; }
+  body { background: var(--paper); color: var(--ink); font: 400 1.05rem/1.75 var(--body); margin: 0; }
 
   /* Masthead */
   .masthead {
@@ -52,14 +52,14 @@
     display: grid; grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); gap: 3.5rem; align-items: center;
   }
   .seal { width: 100%; max-width: 20rem; height: auto; color: var(--gold); justify-self: center; }
-  .eyebrow { font: 400 0.72rem/1 var(--mono); letter-spacing: 0.32em; color: var(--gold); }
+  .eyebrow { font: 600 0.78rem/1 var(--caps); letter-spacing: 0.3em; color: var(--gold); }
   h1 {
     font: 500 clamp(2.4rem, 6vw, 4rem)/1.02 var(--display); font-variant: small-caps;
     letter-spacing: 0.04em; margin: 1.1rem 0 1.2rem; text-wrap: balance;
   }
   .hairline { width: 4.5rem; height: 1px; background: var(--gold); margin-bottom: 1.2rem; }
   .lede { font-size: 1.15rem; color: #c3ccc5; max-width: 34ch; margin: 0 0 1.6rem; }
-  .masthead .contact-line { font: 400 0.8rem/1.5 var(--mono); color: var(--gold); letter-spacing: 0.04em; overflow-wrap: anywhere; }
+  .masthead .contact-line { font: 400 italic 0.95rem/1.5 var(--body); color: var(--gold); overflow-wrap: anywhere; }
 
   /* Engrave-in on load */
   .seal .draw { stroke-dasharray: 920; stroke-dashoffset: 920; animation: engrave 1.8s cubic-bezier(.6,.1,.2,1) forwards; }
@@ -72,7 +72,7 @@
   /* Body */
   main { max-width: 62rem; margin: 0 auto; padding: 4.5rem 20px 3rem; display: grid; gap: 4.5rem; }
   section { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: 1.5rem 3rem; border-top: 1px solid var(--rule); padding-top: 2.2rem; }
-  .kicker { font: 400 0.72rem/1.4 var(--mono); letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-ink); padding-top: 0.55rem; }
+  .kicker { font: 600 0.78rem/1.4 var(--caps); letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-ink); padding-top: 0.55rem; }
   h2 { font: 500 2.2rem/1.1 var(--display); font-variant: small-caps; letter-spacing: 0.03em; margin: 0 0 1.4rem; text-wrap: balance; }
   .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 2rem 2.5rem; }
   .service { min-width: 0; }
@@ -87,9 +87,9 @@
   .card .who { display: flex; gap: 1rem; align-items: center; min-width: 0; }
   .card .who svg { width: 3.4rem; height: 3.4rem; flex: none; color: var(--gold-ink); --field: var(--paper); --mono-fill: var(--ink); }
   .card .name { font: 500 1.3rem/1.2 var(--display); font-variant: small-caps; letter-spacing: 0.03em; }
-  .card .email { font: 400 0.95rem/1.4 var(--mono); user-select: all; overflow-wrap: anywhere; }
+  .card .email { font: 400 italic 1rem/1.4 var(--body); user-select: all; overflow-wrap: anywhere; }
   .copy {
-    font: 500 0.75rem/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink);
+    font: 600 0.74rem/1 var(--caps); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink);
     background: transparent; border: 1px solid var(--gold-ink); padding: 0.8rem 1.1rem; cursor: pointer;
   }
   .copy:hover { background: var(--gold-ink); color: var(--paper); }
@@ -97,7 +97,7 @@
 
   footer {
     max-width: 62rem; margin: 0 auto; padding: 0 20px 3rem; color: var(--muted);
-    font: 400 0.75rem/1.6 var(--mono); letter-spacing: 0.03em;
+    font: 400 0.85rem/1.6 var(--body);
     display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem;
   }
 
@@ -140,10 +140,10 @@
       <circle class="draw" cx="150" cy="150" r="146" fill="none" stroke="currentColor" stroke-width="2"/>
       <circle class="draw d2" cx="150" cy="150" r="139" fill="none" stroke="currentColor" stroke-width="0.8"/>
       <g class="fade">
-        <text font-family="IBM Plex Mono, monospace" font-weight="500" font-size="13.5" letter-spacing="5.2" fill="currentColor">
+        <text font-family="Bodoni Moda, Didot, serif" font-weight="600" font-size="14" letter-spacing="4.6" fill="currentColor">
           <textPath href="#band" startOffset="26.6%" text-anchor="middle">BODDINGTON · ADVISORY</textPath>
         </text>
-        <text font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="4" fill="currentColor">
+        <text font-family="Bodoni Moda, Didot, serif" font-weight="500" font-size="11.5" letter-spacing="3.6" fill="currentColor">
           <textPath href="#bandLow" startOffset="50%" text-anchor="middle">EST · 2026 · SURREY</textPath>
         </text>
         <g fill="currentColor"><path d="M26 150l4-4 4 4-4 4z"/><path d="M266 150l4-4 4 4-4 4z"/></g>
@@ -163,7 +163,7 @@
       <div class="eyebrow">EST. 2026 &nbsp;·&nbsp; SURREY</div>
       <h1>Boddington Advisory</h1>
       <div class="hairline"></div>
-      <p class="lede">Discreet IT counsel for small firms and private clients. Systems looked after properly, and kept secure.</p>
+      <p class="lede">IT support and security for small firms in Surrey and beyond. I'm Caleb, and I'm the one who does the work.</p>
       <div class="contact-line">caleb@boddingtonadvisory.co.uk</div>
     </div>
   </div>
@@ -177,19 +177,19 @@
       <div class="services">
         <div class="service">
           <h3>IT support</h3>
-          <p>Setting up and looking after devices, user accounts and the everyday tools a business runs on.</p>
+          <p>New laptops set up, email moved across, accounts sorted when someone joins or leaves. Then help when something breaks.</p>
         </div>
         <div class="service">
           <h3>Cyber security</h3>
-          <p>Sensible protection for small teams: access, backups, patching, and knowing where your data lives.</p>
+          <p>Backups you've actually tested a restore from, and logins that need more than a password. Dull work, but it's what stops the common attacks.</p>
         </div>
         <div class="service">
           <h3>Artificial intelligence</h3>
-          <p>Putting AI tools to work where they genuinely save time, and setting them up safely.</p>
+          <p>If you've wondered whether ChatGPT or Copilot could take a chore off your hands, I'll try it on your real work first. If it isn't worth it, I'll say so.</p>
         </div>
         <div class="service">
           <h3>Software</h3>
-          <p>Small tools, automations and integrations built to fit the way you already work.</p>
+          <p>Small scripts and automations for the jobs you do by hand every week. I build these for my own home server, so I know which ones pay off.</p>
         </div>
       </div>
     </div>
@@ -199,15 +199,16 @@
     <div class="kicker">The firm</div>
     <div class="prose">
       <h2 id="about">About</h2>
-      <p>Boddington Advisory is the trading name of Caleb Boddington, an IT consultant based in Surrey and working with small businesses across the UK.</p>
-      <p>Work is taken on personally and kept confidential.</p>
+      <p>Boddington Advisory is me, Caleb Boddington. I set it up in September 2026, after a few months doing IT work for a health-tech company, and I'm working towards CompTIA A+ alongside it.</p>
+      <p>At home I run my own server, with its own backups, ad-blocking and media streaming. It's where I try things before I'd suggest them to anyone else.</p>
+      <p>You'll deal with me directly, and what I see of your systems stays between us.</p>
     </div>
   </section>
 
   <section aria-labelledby="contact">
     <div class="kicker">Correspondence</div>
     <div>
-      <h2 id="contact">Get in touch</h2>
+      <h2 id="contact">Write to me</h2>
       <div class="card">
         <div class="who">
           <svg viewBox="0 0 200 200" aria-hidden="true"><use href="#mark"/></svg>

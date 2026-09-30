@@ -1,5 +1,12 @@
 # Changelog
 
+## 30/09/2026, late
+
+- Rewrote the copy in first person with real detail, because the first version read as generic.
+- Replaced the sans-serif and monospace fonts with Libre Caslon for text and Bodoni capitals for
+  labels. Caslon is an English typeface from the 1720s, which suits the old-firm look better than
+  the tech-style fonts did.
+
 ## 30/09/2026, evening
 
 - Redesigned in the "Signet" style: racing green, ivory and old gold, with an engraved BA seal
