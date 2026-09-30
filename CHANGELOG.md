@@ -1,5 +1,10 @@
 # Changelog
 
+## 30/09/2026, font
+
+- Swapped Bodoni Moda for Libre Bodoni, which is drawn for screens: Bodoni Moda's thin strokes all
+  but vanished in small capitals. Small labels are also a little larger.
+
 ## 30/09/2026, last thing
 
 - Replaced the enquiry form with an "Email me" button. The form service (FormSubmit) was returning

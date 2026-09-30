@@ -9,7 +9,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,500;1,6..96,600&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap">
 <style>
   /* Layout: a private firm's headed paper. Racing-green masthead carrying the signet seal,
      then a single ivory column; gold hairlines divide it the way a letterhead is ruled. */
@@ -25,9 +25,9 @@
     --rule: #d8cfb9;
     --field: var(--green);
     --mono-fill: var(--ivory);
-    --display: "Bodoni Moda", Didot, "Bodoni 72", Georgia, serif;
+    --display: "Libre Bodoni", Didot, "Bodoni 72", Georgia, serif;
     --body: "Libre Caslon Text", "Big Caslon", "Adobe Caslon Pro", Georgia, serif;
-    --caps: "Bodoni Moda", Didot, "Bodoni 72", Georgia, serif;
+    --caps: "Libre Bodoni", Didot, "Bodoni 72", Georgia, serif;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -52,7 +52,7 @@
     display: grid; grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); gap: 3.5rem; align-items: center;
   }
   .seal { width: 100%; max-width: 20rem; height: auto; color: var(--gold); justify-self: center; }
-  .eyebrow { font: 600 0.78rem/1 var(--caps); letter-spacing: 0.3em; color: var(--gold); }
+  .eyebrow { font: 600 0.85rem/1 var(--caps); letter-spacing: 0.26em; color: var(--gold); }
   h1 {
     font: 500 clamp(2.4rem, 6vw, 4rem)/1.02 var(--display); font-variant: small-caps;
     letter-spacing: 0.04em; margin: 1.1rem 0 1.2rem; text-wrap: balance;
@@ -72,7 +72,7 @@
   /* Body */
   main { max-width: 62rem; margin: 0 auto; padding: 4.5rem 20px 3rem; display: grid; gap: 4.5rem; }
   section { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: 1.5rem 3rem; border-top: 1px solid var(--rule); padding-top: 2.2rem; }
-  .kicker { font: 600 0.78rem/1.4 var(--caps); letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-ink); padding-top: 0.55rem; }
+  .kicker { font: 600 0.85rem/1.4 var(--caps); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-ink); padding-top: 0.55rem; }
   h2 { font: 500 2.2rem/1.1 var(--display); font-variant: small-caps; letter-spacing: 0.03em; margin: 0 0 1.4rem; text-wrap: balance; }
   .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 2rem 2.5rem; }
   .service { min-width: 0; }
@@ -89,7 +89,7 @@
   .card .name { font: 500 1.3rem/1.2 var(--display); font-variant: small-caps; letter-spacing: 0.03em; }
   .card .email { font: 400 italic 1rem/1.4 var(--body); user-select: all; overflow-wrap: anywhere; }
   .copy {
-    font: 600 0.74rem/1 var(--caps); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink);
+    font: 600 0.85rem/1 var(--caps); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink);
     background: transparent; border: 1px solid var(--gold-ink); padding: 0.8rem 1.1rem; cursor: pointer;
   }
   .copy:hover { background: var(--gold-ink); color: var(--paper); }
@@ -99,7 +99,7 @@
   /* Email button */
   .send-row { margin: 2rem 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
   .send {
-    font: 600 0.78rem/1 var(--caps); letter-spacing: 0.22em; text-transform: uppercase;
+    font: 600 0.85rem/1 var(--caps); letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--ivory); background: var(--green); border: 1px solid var(--green); padding: 1rem 1.6rem; cursor: pointer; display: inline-block; text-decoration: none;
   }
   .send:hover { background: var(--gold-ink); border-color: var(--gold-ink); }
@@ -132,8 +132,8 @@
     <path id="band" d="M150 150 m-118 0 a118 118 0 1 1 236 0 a118 118 0 1 1 -236 0"/>
     <path id="bandLow" d="M150 150 m-128 0 a128 128 0 0 0 256 0"/>
     <symbol id="cipher" viewBox="0 0 200 200">
-      <text x="86" y="140" text-anchor="middle" font-family="Bodoni Moda, Didot, serif" font-style="italic" font-weight="600" font-size="132" style="fill:var(--mono-fill)">B</text>
-      <text x="122" y="150" text-anchor="middle" font-family="Bodoni Moda, Didot, serif" font-style="italic" font-weight="500" font-size="104" style="fill:var(--mono-fill);stroke:var(--field);stroke-width:5px;paint-order:stroke">A</text>
+      <text x="86" y="140" text-anchor="middle" font-family="Libre Bodoni, Didot, serif" font-style="italic" font-weight="600" font-size="132" style="fill:var(--mono-fill)">B</text>
+      <text x="122" y="150" text-anchor="middle" font-family="Libre Bodoni, Didot, serif" font-style="italic" font-weight="500" font-size="104" style="fill:var(--mono-fill);stroke:var(--field);stroke-width:5px;paint-order:stroke">A</text>
     </symbol>
     <symbol id="mark" viewBox="0 0 200 200">
       <circle cx="100" cy="100" r="96" style="fill:var(--field)"/>
@@ -150,10 +150,10 @@
       <circle class="draw" cx="150" cy="150" r="145.5" fill="none" stroke="currentColor" stroke-width="3.6"/>
       <circle class="draw d2" cx="150" cy="150" r="139" fill="none" stroke="currentColor" stroke-width="0.8"/>
       <g class="fade">
-        <text font-family="Bodoni Moda, Didot, serif" font-weight="600" font-size="14" letter-spacing="4.6" fill="currentColor">
+        <text font-family="Libre Bodoni, Didot, serif" font-weight="600" font-size="14" letter-spacing="4.6" fill="currentColor">
           <textPath href="#band" startOffset="26.6%" text-anchor="middle">BODDINGTON · ADVISORY</textPath>
         </text>
-        <text font-family="Bodoni Moda, Didot, serif" font-weight="500" font-size="11.5" letter-spacing="3.6" fill="currentColor">
+        <text font-family="Libre Bodoni, Didot, serif" font-weight="500" font-size="11.5" letter-spacing="3.6" fill="currentColor">
           <textPath href="#bandLow" startOffset="50%" text-anchor="middle">EST · 2026 · SURREY</textPath>
         </text>
         <g fill="currentColor"><path d="M26 150l4-4 4 4-4 4z"/><path d="M266 150l4-4 4 4-4 4z"/></g>
