@@ -1,5 +1,11 @@
 # Changelog
 
+## 30/09/2026, last thing
+
+- Replaced the enquiry form with an "Email me" button. The form service (FormSubmit) was returning
+  server errors for every address, and a plain email link has nothing to break and hands nobody's
+  details to a third party.
+
 ## 30/09/2026, later
 
 - The enquiry form now drops anything sent within four seconds of the page opening, and passes the
