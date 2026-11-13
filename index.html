@@ -8,262 +8,115 @@
 <meta name="theme-color" content="#13302a">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="fonts/fonts.css">
-<style>
-  /* Layout: a private firm's headed paper. Racing-green masthead carrying the signet seal,
-     then a single ivory column; gold hairlines divide it the way a letterhead is ruled. */
-  :root {
-    --green: #13302a;
-    --green-deep: #0c211c;
-    --ivory: #ece5d4;
-    --paper: #f3efe4;
-    --ink: #1a2622;
-    --muted: #56625c;
-    --gold: #b8955a;
-    --gold-ink: #7d6230;
-    --rule: #d8cfb9;
-    --field: var(--green);
-    --mono-fill: var(--ivory);
-    --display: "Libre Bodoni", Didot, "Bodoni 72", Georgia, serif;
-    --body: "Libre Caslon Text", "Big Caslon", "Adobe Caslon Pro", Georgia, serif;
-    --caps: "Libre Bodoni", Didot, "Bodoni 72", Georgia, serif;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #0f1d19; --ink: #e8e2d2; --muted: #a3ada6; --gold-ink: #c9a86c; --rule: #2a3a34;
-      color-scheme: dark;
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper: #0f1d19; --ink: #e8e2d2; --muted: #a3ada6; --gold-ink: #c9a86c; --rule: #2a3a34;
-    color-scheme: dark;
-  }
-  * { box-sizing: border-box; }
-  body { background: var(--paper); color: var(--ink); font: 400 1.05rem/1.75 var(--body); margin: 0; }
-
-  /* Masthead */
-  .masthead {
-    background:
-      url(img/guilloche.svg) no-repeat right -10rem center / 44rem auto,
-      radial-gradient(ellipse at 28% 42%, var(--green) 0%, var(--green-deep) 88%);
-    color: var(--ivory); padding-inline: 20px;
-  }
-  .masthead .projects-link { display: inline-block; margin-top: 1.1rem; font: 600 0.85rem/1.4 var(--caps); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ivory); text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 0.3rem; }
-  .masthead .projects-link:hover { color: var(--gold); }
-  .masthead .projects-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-  .masthead-inner {
-    max-width: 62rem; margin: 0 auto; padding-block: 5rem 4.5rem;
-    display: grid; grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); gap: 3.5rem; align-items: center;
-  }
-  .seal { width: 100%; max-width: 20rem; height: auto; color: var(--gold); justify-self: center; }
-  .eyebrow { font: 600 0.85rem/1 var(--caps); letter-spacing: 0.26em; color: var(--gold); }
-  h1 {
-    font: 500 clamp(2.4rem, 6vw, 4rem)/1.02 var(--display); font-variant: small-caps;
-    letter-spacing: 0.04em; margin: 1.1rem 0 1.2rem; text-wrap: balance;
-  }
-  .hairline { width: 4.5rem; height: 1px; background: var(--gold); margin-bottom: 1.2rem; }
-  .lede { font-size: 1.15rem; color: #c3ccc5; max-width: 34ch; margin: 0 0 1.6rem; }
-  .masthead .contact-line { font: 400 italic 0.95rem/1.5 var(--body); color: var(--gold); overflow-wrap: anywhere; }
-
-  /* Engrave-in on load */
-  .seal .draw { stroke-dasharray: 920; stroke-dashoffset: 920; animation: engrave 1.8s cubic-bezier(.6,.1,.2,1) forwards; }
-  .seal .draw.d2 { animation-delay: .25s; }
-  .seal .draw.d3 { animation-delay: .5s; }
-  .seal .fade { opacity: 0; animation: fade 1.2s ease forwards .9s; }
-  @keyframes engrave { to { stroke-dashoffset: 0; } }
-  @keyframes fade { to { opacity: 1; } }
-
-  /* Body */
-  main { max-width: 62rem; margin: 0 auto; padding: 4.5rem 20px 3rem; display: grid; gap: 4.5rem; }
-  section { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: 1.5rem 3rem; border-top: 1px solid var(--rule); padding-top: 2.2rem; }
-  .kicker { font: 600 0.85rem/1.4 var(--caps); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-ink); padding-top: 0.55rem; }
-  h2 { font: 500 2.2rem/1.1 var(--display); font-variant: small-caps; letter-spacing: 0.03em; margin: 0 0 1.4rem; text-wrap: balance; }
-  .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 2rem 2.5rem; }
-  .service { min-width: 0; }
-  .service h3 { font: 700 1.15rem/1.3 var(--body); letter-spacing: 0.01em; margin: 0 0 0.45rem; }
-  .service p { margin: 0; color: var(--muted); font-size: 0.98rem; }
-  .prose p { margin: 0; color: var(--muted); max-width: 58ch; font-size: 1.08rem; }
-  .prose p + p { margin-top: 0.9rem; }
-  .card {
-    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem;
-    border: 1px solid var(--rule); padding: 1.5rem 1.6rem;
-  }
-  .card .who { display: flex; gap: 1rem; align-items: center; min-width: 0; }
-  .card .who svg { width: 3.4rem; height: 3.4rem; flex: none; color: var(--gold-ink); --field: var(--paper); --mono-fill: var(--ink); }
-  .card .name { font: 500 1.3rem/1.2 var(--display); font-variant: small-caps; letter-spacing: 0.03em; }
-  .card .email { font: 400 italic 1rem/1.4 var(--body); user-select: all; overflow-wrap: anywhere; }
-  .copy {
-    font: 600 0.85rem/1 var(--caps); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink);
-    background: transparent; border: 1px solid var(--gold-ink); padding: 0.8rem 1.1rem; cursor: pointer;
-  }
-  .copy:hover { background: var(--gold-ink); color: var(--paper); }
-  .copy:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-
-
-  /* Email button */
-  .send-row { margin: 2rem 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
-  .send {
-    font: 600 0.85rem/1 var(--caps); letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--ivory); background: var(--green); border: 1px solid var(--green); padding: 1rem 1.6rem; cursor: pointer; display: inline-block; text-decoration: none;
-  }
-  .send:hover { background: var(--gold-ink); border-color: var(--gold-ink); }
-  .send:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-
-  footer {
-    max-width: 62rem; margin: 0 auto; padding: 0 20px 3rem; color: var(--muted);
-    font: 400 0.85rem/1.6 var(--body);
-    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem;
-  }
-
-  footer a { color: inherit; text-decoration-color: var(--gold); text-underline-offset: 0.2em; }
-  footer a:hover { color: var(--ink); }
-
-  @media (max-width: 760px) {
-    .masthead { background-position: right -9rem top 2rem, 0 0; background-size: 26rem auto, auto; }
-    .masthead-inner { grid-template-columns: 1fr; gap: 2.2rem; padding-block: 3.5rem 3.2rem; }
-    .seal { max-width: 13rem; justify-self: start; }
-    section { grid-template-columns: 1fr; gap: 0.6rem; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .seal .draw { animation: none; stroke-dashoffset: 0; }
-    .seal .fade { animation: none; opacity: 1; }
-  }
-</style>
+<link rel="stylesheet" href="assets/site.css">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/libre-bodoni-normal-400-700.woff2">
+<link rel="modulepreload" href="vendor/three.module.min.js">
+<script>document.documentElement.classList.add('js');</script>
+<script type="importmap">{ "imports": { "three": "./vendor/three.module.min.js" } }</script>
 </head>
-<body>
+<body data-scene="hero">
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="hint" id="hint">Drag to turn &nbsp;·&nbsp; Scroll to read &nbsp;·&nbsp; Click to stamp</div>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <pattern id="hatch" width="3.2" height="3.2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <line x1="0" y1="0" x2="0" y2="3.2" stroke="currentColor" stroke-width="0.55" opacity="0.5"/>
-    </pattern>
-    <path id="band" d="M150 150 m-118 0 a118 118 0 1 1 236 0 a118 118 0 1 1 -236 0"/>
-    <path id="bandLow" d="M150 150 m-128 0 a128 128 0 0 0 256 0"/>
-    <symbol id="cipher" viewBox="0 0 200 200">
-      <text x="86" y="140" text-anchor="middle" font-family="Libre Bodoni, Didot, serif" font-style="italic" font-weight="600" font-size="132" style="fill:var(--mono-fill)">B</text>
-      <text x="122" y="150" text-anchor="middle" font-family="Libre Bodoni, Didot, serif" font-style="italic" font-weight="500" font-size="104" style="fill:var(--mono-fill);stroke:var(--field);stroke-width:5px;paint-order:stroke">A</text>
-    </symbol>
-    <symbol id="mark" viewBox="0 0 200 200">
-      <circle cx="100" cy="100" r="96" style="fill:var(--field)"/>
-      <circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="5"/>
-      <circle cx="100" cy="100" r="85" fill="none" stroke="currentColor" stroke-width="1.8"/>
-      <use href="#cipher" x="8" y="6" width="184" height="184"/>
-    </symbol>
-  </defs>
-</svg>
-
-<header class="masthead">
-  <div class="masthead-inner">
-    <svg class="seal" viewBox="0 0 300 300" role="img" aria-label="The Boddington Advisory seal: a BA monogram inside an engraved ring">
-      <circle class="draw" cx="150" cy="150" r="145.5" fill="none" stroke="currentColor" stroke-width="3.6"/>
-      <circle class="draw d2" cx="150" cy="150" r="139" fill="none" stroke="currentColor" stroke-width="0.8"/>
-      <g class="fade">
-        <text font-family="Libre Bodoni, Didot, serif" font-weight="600" font-size="14" letter-spacing="4.6" fill="currentColor">
-          <textPath href="#band" startOffset="26.6%" text-anchor="middle">BODDINGTON · ADVISORY</textPath>
-        </text>
-        <text font-family="Libre Bodoni, Didot, serif" font-weight="500" font-size="11.5" letter-spacing="3.6" fill="currentColor">
-          <textPath href="#bandLow" startOffset="50%" text-anchor="middle">EST · 2026 · SURREY</textPath>
-        </text>
-        <g fill="currentColor"><path d="M26 150l4-4 4 4-4 4z"/><path d="M266 150l4-4 4 4-4 4z"/></g>
-        <circle cx="150" cy="150" r="95" fill="url(#hatch)"/>
-        <circle cx="150" cy="150" r="80" style="fill:var(--field)"/>
-        <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
-          <path d="M70 150h8"/><path d="M230 150h-8"/><path d="M150 70v8"/><path d="M150 230v-8"/>
-          <path d="M86 118l12 12h10"/><path d="M214 182l-12-12h-10"/>
-        </g>
-        <g fill="currentColor"><circle cx="86" cy="118" r="2.6"/><circle cx="214" cy="182" r="2.6"/></g>
-        <use href="#cipher" x="70" y="70" width="160" height="160"/>
-      </g>
-      <circle class="draw d3" cx="150" cy="150" r="104" fill="none" stroke="currentColor" stroke-width="0.8"/>
-      <circle class="draw d3" cx="150" cy="150" r="97" fill="none" stroke="currentColor" stroke-width="2"/>
-    </svg>
-    <div>
-      <div class="eyebrow">EST. 2026 &nbsp;·&nbsp; SURREY</div>
-      <h1>Boddington Advisory</h1>
-      <div class="hairline"></div>
-      <p class="lede">IT support and security for small firms in Surrey and beyond.</p>
-      <div class="contact-line">caleb@boddingtonadvisory.co.uk</div>
-      <a class="projects-link" href="projects.html">Personal projects</a>
-    </div>
-  </div>
+<header class="site-head">
+  <a class="brand" href="index.html" aria-label="Boddington Advisory, home">
+    <svg class="brand-mark" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" fill="#13302a"/><circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="7"/><circle cx="100" cy="100" r="83" fill="none" stroke="currentColor" stroke-width="2.5"/><g font-family="Libre Bodoni, Didot, serif" font-style="italic" text-anchor="middle"><text x="87" y="138" font-weight="600" font-size="124" fill="#ece5d4">B</text><text x="120" y="147" font-weight="500" font-size="98" fill="#ece5d4" stroke="#13302a" stroke-width="6" paint-order="stroke">A</text></g></svg>
+    <span class="brand-name">Boddington Advisory</span>
+  </a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  <nav class="menu" id="menu" aria-label="Site">
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
-<main>
-  <section aria-labelledby="services">
-    <div class="kicker">Practice</div>
-    <div>
+<div class="page">
+
+  <section class="chapter hero" id="top" data-chapter="hero" aria-label="Boddington Advisory">
+    <div class="copy reveal">
+      <svg class="nogl-seal" viewBox="0 0 200 200" role="img" aria-label="The Boddington Advisory seal: a BA monogram inside an engraved ring">
+        <circle cx="100" cy="100" r="96" fill="#13302a"/>
+        <circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="5"/>
+        <circle cx="100" cy="100" r="85" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <g font-family="Libre Bodoni, Didot, serif" font-style="italic" text-anchor="middle">
+          <text x="86" y="138" font-weight="600" font-size="122" fill="#ece5d4">B</text>
+          <text x="120" y="147" font-weight="500" font-size="96" fill="#ece5d4" stroke="#13302a" stroke-width="5" paint-order="stroke">A</text>
+        </g>
+      </svg>
+      <div class="wordmark">Boddington Advisory</div>
+      <h1>IT support and security for small firms in Surrey and beyond.</h1>
+      <div class="hairline centre"></div>
+      <a class="contact-line" href="mailto:caleb@boddingtonadvisory.co.uk">caleb@<wbr>boddingtonadvisory.co.uk</a>
+      <div class="actions">
+        <a class="btn send" href="mailto:caleb@boddingtonadvisory.co.uk?subject=Enquiry%20from%20your%20website">Email me</a>
+        <a class="plain" href="projects.html">Personal projects</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter left" aria-labelledby="services" data-chapter="services">
+    <div class="copy wide reveal">
       <h2 id="services">Services</h2>
-      <div class="services">
-        <div class="service">
-          <h3>IT support</h3>
-          <p>New laptops set up, email moved across, accounts sorted when someone joins or leaves. Then help when something breaks.</p>
+      <div class="hairline"></div>
+      <div class="teasers">
+        <div class="teaser">
+          <h3><a href="services.html#it-support">IT support</a></h3>
+          <p>New laptops set up, email moved across, accounts sorted when someone joins or leaves.</p>
         </div>
-        <div class="service">
-          <h3>Cyber security</h3>
-          <p>Backups you've actually tested a restore from, and logins that need more than a password. Dull work, but it's what stops the common attacks.</p>
+        <div class="teaser">
+          <h3><a href="services.html#cyber-security">Cyber security</a></h3>
+          <p>Backups you've actually tested a restore from, and logins that need more than a password.</p>
         </div>
-        <div class="service">
-          <h3>Artificial intelligence</h3>
-          <p>If you've wondered whether ChatGPT or Copilot could take a chore off your hands, I'll try it on your real work first. If it isn't worth it, I'll say so.</p>
+        <div class="teaser">
+          <h3><a href="services.html#artificial-intelligence">Artificial intelligence</a></h3>
+          <p>If you've wondered whether ChatGPT or Copilot could take a chore off your hands, I'll try it on your real work first.</p>
         </div>
-        <div class="service">
-          <h3>Software</h3>
-          <p>Small scripts and automations for the jobs you do by hand every week. I build and run my own, so I know which ones pay off.</p>
+        <div class="teaser">
+          <h3><a href="services.html#software">Software</a></h3>
+          <p>Small scripts and automations for the jobs you do by hand every week.</p>
         </div>
       </div>
+      <div class="more"><a class="link go" href="services.html">Services</a></div>
     </div>
   </section>
 
-  <section aria-labelledby="about">
-    <div class="kicker">The firm</div>
-    <div class="prose">
+  <section class="chapter right" aria-labelledby="about" data-chapter="about">
+    <div class="copy reveal">
       <h2 id="about">About</h2>
+      <div class="hairline"></div>
       <p>I'm Caleb Boddington. I set up Boddington Advisory in September 2026 to help small firms with their IT: keeping it running, keeping it secure, and sorting it out when something goes wrong.</p>
-      <p>I have experience doing IT in a health-tech company, where security and record-keeping have to be right, and I work to that same standard whatever the size of the business.</p>
-      <p>What I see of your systems stays between us.</p>
-    </div>
-  </section>
-
-  <section aria-labelledby="contact">
-    <div class="kicker">Correspondence</div>
-    <div>
-      <h2 id="contact">Write to me</h2>
-      <div class="card">
-        <div class="who">
-          <svg viewBox="0 0 200 200" aria-hidden="true"><use href="#mark"/></svg>
-          <div>
-            <div class="name">Caleb Boddington</div>
-            <div class="email" id="email">caleb@boddingtonadvisory.co.uk</div>
-          </div>
-        </div>
-        <button class="copy" id="copy" type="button">Copy email</button>
+      <div class="more"><a class="link go" href="about.html">About</a></div>
+      <div class="more teaser">
+        <h3><a href="projects.html">Personal projects</a></h3>
+        <a href="projects.html"><img class="thumb" src="img/support-desk.jpg" alt="The Homelab support desk README on GitHub" width="872" height="760" loading="lazy"></a>
+        <p>Things I've built in my own time. They're all public, so have a look.</p>
       </div>
-
-      <p class="send-row"><a class="send" href="mailto:caleb@boddingtonadvisory.co.uk?subject=Enquiry%20from%20your%20website">Email me</a></p>
     </div>
   </section>
-</main>
 
-<footer>
+  <section class="chapter centre" aria-labelledby="contact" data-chapter="contact">
+    <div class="copy reveal">
+      <h2 id="contact">Write to me</h2>
+      <div class="hairline centre"></div>
+      <p class="lede">Caleb Boddington</p>
+      <a class="contact-line" href="mailto:caleb@boddingtonadvisory.co.uk">caleb@<wbr>boddingtonadvisory.co.uk</a>
+      <div class="actions">
+        <a class="btn send" href="mailto:caleb@boddingtonadvisory.co.uk?subject=Enquiry%20from%20your%20website">Email me</a>
+        <a class="plain" href="contact.html">Write to me</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="site-foot">
   <span>Caleb Boddington, trading as Boddington Advisory.</span>
   <span>Sole trader · England · Est. 2026 · <a href="privacy.html">Privacy</a></span>
 </footer>
 
-<script>
-  (function () {
-    var btn = document.getElementById('copy'), email = document.getElementById('email');
-    btn.addEventListener('click', function () {
-      var reset = function () { setTimeout(function () { btn.textContent = 'Copy email'; }, 1800); };
-      var fallback = function () {
-        var r = document.createRange(); r.selectNodeContents(email);
-        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-        btn.textContent = 'Selected'; reset();
-      };
-      try {
-        navigator.clipboard.writeText(email.textContent.trim()).then(function () { btn.textContent = 'Copied'; reset(); }, fallback);
-      } catch (e) { fallback(); }
-    });
-  })();
-
-</script>
+<script src="assets/site.js"></script>
+<script type="module" src="assets/signet.js"></script>
 </body>
 </html>

@@ -1,5 +1,16 @@
 # Changelog
 
+## 12/11/2026, the Signet redesign
+
+- Redesigned around a 3D gold signet seal (three.js, served from this site) that you can drag to
+  turn and click to stamp; on the Contact page it presses into green wax and the contact details
+  appear in the impression.
+- Split the single page into Home, Services, About, Projects and Contact pages with a short menu,
+  because a business site reads as more established when each subject has its own page.
+- The wording is unchanged. Text and the email buttons still show with JavaScript or 3D graphics
+  turned off, and a visit still sends nothing to any other company.
+- Added the font and three.js licence texts (fonts/OFL.txt, vendor/three-LICENSE).
+
 ## 30/09/2026, privacy
 
 - Added a Privacy page, linked from every footer, because people who email the business are
